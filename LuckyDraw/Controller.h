@@ -1,10 +1,4 @@
-//
-//  Controller.h
-//  Lucky Draw
-//
-//  Created by nowa on 08-8-12.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
-//
+
 
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
