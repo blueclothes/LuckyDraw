@@ -62,7 +62,7 @@
 	
 	if (namelist == NULL) {
 		
-        mLabel.stringValue = @"你的桌面上没有list.txt文件！";
+        mLabel.stringValue = @"你的桌面上没有list.txt文件!";
 		[NSThread exit];
 	}
 
