@@ -22,7 +22,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <ikImageView wantsLayer="YES" zoomFactor="0.0" autoresizes="NO" supportsDragAndDrop="NO" doubleClickOpensImageEditPanel="NO" id="454">
-                        <rect key="frame" x="241" y="341" width="1245" height="362"/>
+                        <rect key="frame" x="241" y="315" width="1245" height="388"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="1" green="0.28963134950000002" blue="0.066300920799999996" alpha="1" colorSpace="calibratedRGB"/>
                     </ikImageView>
