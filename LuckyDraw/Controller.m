@@ -1,5 +1,3 @@
-
-
 #import "Controller.h"
 #import <AppKit/AppKit.h>
 
@@ -87,16 +85,19 @@
         }
     }
     
+    if(cleanArray.count>0)
+    {
 	
-	int count = [cleanArray count];
-	while ([mButton tag] == 1) {
-        int ramdon = [self SSRandomIntBetween:0 to: count-1];
-		NSString * temp = [cleanArray objectAtIndex:ramdon];
-		if (temp != NULL) {
-			mLabel.stringValue= temp;
-	        [NSThread sleepForTimeInterval:0.001];
-		}
-	}
+        int count = [cleanArray count];
+        while ([mButton tag] == 1) {
+            int ramdon = [self SSRandomIntBetween:0 to: count-1];
+            NSString * temp = [cleanArray objectAtIndex:ramdon];
+            if (temp != NULL) {
+                mLabel.stringValue= temp;
+                [NSThread sleepForTimeInterval:0.001];
+            }
+        }
+    }
     [pool release];
 	[NSThread exit];
 }
