@@ -23,22 +23,22 @@
 
 - (IBAction)draw:(id)sender
 {
-	NSInteger button_status = [mButton tag];
-	NSLog(@"B: %ld", (long)button_status);
-	if (button_status == 0) {
+	NSInteger buttonStatus = [mButton tag];
+	NSLog(@"B: %ld", (long)buttonStatus);
+	if (buttonStatus == 0) {
 		[NSThread
 		 detachNewThreadSelector: @selector(interpret:)
 		 toTarget:		     self
 		 withObject:		     nil];
         
-	} else if (button_status == 1) {
+	} else if (buttonStatus == 1) {
 		[mButton setTag:0];
 		[mButton setTitle:@"开始抽奖"];
         mExisting.string = [NSString stringWithFormat:@"%@\n%@", mExisting.string,mLabel.stringValue];
 	}
 }
 
-- (int) SSRandomIntBetween:(int) a to: (int) b
+- (int) generateRandomIntegerBetween:(int) a to: (int) b
 {
     int range = b - a < 0 ? b - a - 1 : b - a + 1;
     int value = (int)(range * ((float) random() / (float) RAND_MAX));
@@ -90,7 +90,7 @@
 	
         int count = [cleanArray count];
         while ([mButton tag] == 1) {
-            int ramdon = [self SSRandomIntBetween:0 to: count-1];
+            int ramdon = [self generateRandomIntegerBetween:0 to: count-1];
             NSString * temp = [cleanArray objectAtIndex:ramdon];
             if (temp != NULL) {
                 mLabel.stringValue= temp;
