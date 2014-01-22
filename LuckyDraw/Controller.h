@@ -23,6 +23,8 @@
 
 - (void)interpret:(id)theNames;
 
+- (IBAction)onKeyUp:(id)sender;
+
 
 
 @end

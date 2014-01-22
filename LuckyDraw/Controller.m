@@ -102,4 +102,10 @@
 	[NSThread exit];
 }
 
+
+- (IBAction)onKeyUp:(id)sender
+{
+    
+}
+
 @end
