@@ -88,6 +88,8 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
  
     [mImageView zoomImageToFit: self];
     [mImageView setDelegate: self];
+    
+    [self initPlayer];
 	
 }
 
