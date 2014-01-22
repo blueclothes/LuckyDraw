@@ -94,7 +94,7 @@
             NSString * temp = [cleanArray objectAtIndex:ramdon];
             if (temp != NULL) {
                 mLabel.stringValue= temp;
-                [NSThread sleepForTimeInterval:0.001];
+                [NSThread sleepForTimeInterval:0.0008];
             }
         }
     }
