@@ -3,6 +3,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 #import <ScreenSaver/ScreenSaver.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class IKImageView;
 
@@ -17,6 +18,9 @@
 	NSArray * names;
 }
 
+@property(nonatomic, strong)AVPlayer * musicPlayer;
+@property (assign) IBOutlet NSButton *btnPlay;
+
 - (IBAction)draw:(id)sender;
 
 - (void)openImageURL: (NSURL*)url;
@@ -25,6 +29,7 @@
 
 - (IBAction)onKeyUp:(id)sender;
 
+- (IBAction)muteMusic:(id)sender;
 
 
 @end

@@ -1,7 +1,77 @@
 #import "Controller.h"
 #import <AppKit/AppKit.h>
 
+
+
+#define FILE_NAME @"TFMaBF"
+#define FILE_EXTENSION @"mp3"
+
+static void *INNOAVPlayerItemStatusContext = &INNOAVPlayerItemStatusContext;
+static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
+
+
 @implementation Controller
+
+- (void)initPlayer
+{
+    NSString * filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", FILE_NAME] ofType:FILE_EXTENSION];
+    
+    if (self.musicPlayer == nil)
+    {
+        self.musicPlayer = [AVPlayer playerWithURL:[NSURL fileURLWithPath:filePath]];
+        [self.musicPlayer setVolume:0.0f];
+        
+        [self addObserver:self forKeyPath:@"musicPlayer.rate" options:NSKeyValueObservingOptionNew context:INNOAVPlayerRateContext];
+        [self addObserver:self forKeyPath:@"musicPlayer.currentItem.status" options:NSKeyValueObservingOptionNew context:INNOAVPlayerItemStatusContext];
+        
+    }
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	if (context == INNOAVPlayerItemStatusContext)
+	{
+		AVPlayerStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+		BOOL enable = NO;
+		switch (status)
+		{
+			case AVPlayerItemStatusUnknown:
+				break;
+			case AVPlayerItemStatusReadyToPlay:
+				enable = YES;
+				break;
+			case AVPlayerItemStatusFailed:
+				break;
+		}
+		
+        if (enable)
+        {
+            [self play];
+        }
+
+	}
+	else if (context == INNOAVPlayerRateContext)
+	{
+		float rate = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
+		if (rate != 1.f)
+		{
+            NSString * filePath = [[NSBundle mainBundle] pathForResource:FILE_NAME ofType:FILE_EXTENSION];
+            [self.musicPlayer replaceCurrentItemWithPlayerItem:[AVPlayerItem playerItemWithURL:[NSURL fileURLWithPath:filePath]]];
+		}
+	}
+	else
+	{
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	}
+}
+
+
+- (void)play
+{
+    [self.musicPlayer play];
+}
+
 
 - (void)openImageURL: (NSURL*)url
 {
@@ -106,6 +176,20 @@
 - (IBAction)onKeyUp:(id)sender
 {
     
+}
+
+- (IBAction)muteMusic:(id)sender
+{
+    if (self.musicPlayer.volume == 0.0f)
+    {
+        self.musicPlayer.volume = 1.0f;
+        [self.btnPlay setImage:[NSImage imageNamed:@"on"]];
+    }
+    else
+    {
+        self.musicPlayer.volume = 0.0f;
+        [self.btnPlay setImage:[NSImage imageNamed:@"off"]];
+    }
 }
 
 @end
