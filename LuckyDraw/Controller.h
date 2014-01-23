@@ -3,6 +3,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 #import <ScreenSaver/ScreenSaver.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class IKImageView;
 
@@ -15,7 +16,11 @@
 	NSDictionary * mImageProperties;
 	NSString *     mImageUTType;
 	NSArray * names;
+    BOOL isLocked;
 }
+
+@property(nonatomic, strong)AVPlayer * musicPlayer;
+@property (assign) IBOutlet NSButton *btnPlay;
 
 - (IBAction)draw:(id)sender;
 
@@ -25,6 +30,9 @@
 
 - (IBAction)onKeyUp:(id)sender;
 
+- (IBAction)muteMusic:(id)sender;
+- (IBAction)unlockUI:(id)sender;
 
+- (IBAction)didPressStartStop:(id)sender;
 
 @end
