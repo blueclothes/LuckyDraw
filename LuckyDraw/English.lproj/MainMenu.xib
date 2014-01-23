@@ -24,6 +24,12 @@
                             <menuItem title="Hide Others" keyEquivalent="h" id="WRo-5I-We6">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                             </menuItem>
+                            <menuItem title="Start/Stop" tag="10001" keyEquivalent=" " id="sfv-F3-6Ra">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didPressStartStop:" target="456" id="pg5-ik-s1L"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Show All" id="usE-LG-Zey"/>
                             <menuItem isSeparatorItem="YES" id="WzF-Z9-xl0">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
@@ -79,26 +85,26 @@
         <window title="InnoCellence InnoCellence Lucky Draw" allowsToolTipsWhenApplicationIsInactive="NO" hasShadow="NO" appearanceType="lightContent" animationBehavior="default" id="450" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
-            <rect key="contentRect" x="125" y="109" width="1180" height="677"/>
+            <rect key="contentRect" x="125" y="109" width="1247" height="703"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="451">
-                <rect key="frame" x="0.0" y="0.0" width="1180" height="677"/>
+                <rect key="frame" x="0.0" y="0.0" width="1247" height="703"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <ikImageView wantsLayer="YES" zoomFactor="0.0" autoresizes="NO" supportsDragAndDrop="NO" doubleClickOpensImageEditPanel="NO" id="454">
-                        <rect key="frame" x="241" y="315" width="1245" height="388"/>
+                        <rect key="frame" x="241" y="327" width="1006" height="376"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="1" green="0.28963134950000002" blue="0.066300920799999996" alpha="1" colorSpace="calibratedRGB"/>
                     </ikImageView>
                     <box autoresizesSubviews="NO" title="Box" boxType="custom" borderType="line" id="Pli-Y7-McR">
-                        <rect key="frame" x="241" y="0.0" width="958" height="362"/>
+                        <rect key="frame" x="241" y="0.0" width="1006" height="362"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="956" height="360"/>
+                            <rect key="frame" x="1" y="1" width="1004" height="360"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" id="461">
-                                    <rect key="frame" x="-24" y="188" width="1004" height="86"/>
+                                    <rect key="frame" x="0.0" y="189" width="1004" height="86"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="谁这么幸运？" id="462">
                                         <font key="font" metaFont="system" size="80"/>
@@ -107,7 +113,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <button appearanceType="lightContent" tag="1002" id="fAR-vH-Jca">
-                                    <rect key="frame" x="867" y="264" width="43" height="45"/>
+                                    <rect key="frame" x="948" y="12" width="43" height="45"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="off" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Np-dG-vEY">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -117,26 +123,37 @@
                                         <action selector="muteMusic:" target="456" id="sDi-JN-xWs"/>
                                     </connections>
                                 </button>
+                                <button appearanceType="lightContent" tag="10001" id="0e0-GD-JuS">
+                                    <rect key="frame" x="901" y="12" width="43" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="locked" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ahc-42-JBv">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system" size="10"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="unlockUI:" target="456" id="26f-Jp-zBR"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </view>
                         <color key="borderColor" red="1" green="0.28963134950000002" blue="0.066300920799999996" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="fillColor" red="1" green="0.28963134950000002" blue="0.066300920799999996" alpha="1" colorSpace="calibratedRGB"/>
                     </box>
                     <scrollView appearanceType="aqua" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="light" findBarPosition="aboveHorizontalRuler" id="b5u-w5-CYr">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="679"/>
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="703"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="73I-my-NZm">
-                            <rect key="frame" x="0.0" y="0.0" width="225" height="679"/>
+                            <rect key="frame" x="0.0" y="0.0" width="225" height="703"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="PC6-vL-dvn">
-                                    <rect key="frame" x="0.0" y="0.0" width="234" height="679"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="234" height="703"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" red="1" green="0.28963134950000002" blue="0.066300920799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="minSize" width="225" height="679"/>
+                                    <size key="minSize" width="225" height="703"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="225" height="679"/>
+                                    <size key="minSize" width="225" height="703"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                 </textView>
                             </subviews>
@@ -147,7 +164,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="w4S-82-lFG">
-                            <rect key="frame" x="225" y="0.0" width="15" height="679"/>
+                            <rect key="frame" x="225" y="0.0" width="15" height="703"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -161,7 +178,7 @@
                                 <button verticalHuggingPriority="750" id="483">
                                     <rect key="frame" x="24" y="-9" width="181" height="150"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="smallSquare" title="开始抽奖" bezelStyle="smallSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="484">
+                                    <buttonCell key="cell" type="smallSquare" title="开始抽奖" bezelStyle="smallSquare" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="484">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" size="44" name="STLibian-SC-Regular"/>
                                         <string key="keyEquivalent" base64-UTF8="YES">
@@ -196,6 +213,7 @@ DQ
         </customObject>
     </objects>
     <resources>
+        <image name="locked" width="159" height="159"/>
         <image name="off" width="256" height="256"/>
     </resources>
 </document>

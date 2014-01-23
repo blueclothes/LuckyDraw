@@ -16,6 +16,7 @@
 	NSDictionary * mImageProperties;
 	NSString *     mImageUTType;
 	NSArray * names;
+    BOOL isLocked;
 }
 
 @property(nonatomic, strong)AVPlayer * musicPlayer;
@@ -30,6 +31,8 @@
 - (IBAction)onKeyUp:(id)sender;
 
 - (IBAction)muteMusic:(id)sender;
+- (IBAction)unlockUI:(id)sender;
 
+- (IBAction)didPressStartStop:(id)sender;
 
 @end

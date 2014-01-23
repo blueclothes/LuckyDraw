@@ -95,6 +95,11 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 
 - (IBAction)draw:(id)sender
 {
+    if (!mButton.isEnabled)
+    {
+        return;
+    }
+    
 	NSInteger button_status = [mButton tag];
 	NSLog(@"B: %ld", (long)button_status);
 	if (button_status == 0) {
@@ -193,5 +198,29 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
         [self.btnPlay setImage:[NSImage imageNamed:@"off"]];
     }
 }
+
+- (IBAction)unlockUI:(id)sender
+{
+    NSButton * btnLocker = (NSButton *)sender;
+    if (btnLocker.tag == 10001)
+    {
+        btnLocker.tag = 10002;
+        [mButton setEnabled:YES];
+        [btnLocker setImage:[NSImage imageNamed:@"unlocked"]];
+    }
+    else
+    {
+        btnLocker.tag = 10001;
+        [mButton setEnabled:NO];
+        [btnLocker setImage:[NSImage imageNamed:@"locked"]];
+    }
+}
+
+- (IBAction)didPressStartStop:(id)sender
+{
+    [self draw:nil];
+}
+
+
 
 @end
