@@ -95,6 +95,11 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 
 - (IBAction)draw:(id)sender
 {
+    if (!mButton.isEnabled)
+    {
+        return;
+    }
+    
 	NSInteger buttonStatus = [mButton tag];
 	NSLog(@"B: %ld", (long)buttonStatus);
 	if (buttonStatus == 0) {
