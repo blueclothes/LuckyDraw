@@ -287,6 +287,7 @@
 				GCC_PREFIX_HEADER = "InnoCellence Lucky Draw_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "InnoCellence Lucky Draw";
 				SDKROOT = macosx10.9;
 			};
@@ -303,6 +304,7 @@
 				GCC_PREFIX_HEADER = "InnoCellence Lucky Draw_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "InnoCellence Lucky Draw";
 				SDKROOT = macosx10.9;
 			};
