@@ -192,7 +192,8 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 - (int) generateRandomIntegerBetween:(int) a to: (int) b
 {
     int range = b - a < 0 ? b - a - 1 : b - a + 1;
-    int value = (int)(range * ((float) random() / (float) RAND_MAX));
+    int value = (int)(range * ((float) arc4random() / (float) RAND_MAX));
+    NSLog(@"%d",value);
     return value == range ? a : a + value;
 }
 
