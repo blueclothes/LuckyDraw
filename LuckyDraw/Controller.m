@@ -189,14 +189,6 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 }
 
 #pragma mark - lucky draw kernel algorithm
-- (int) generateRandomIntegerBetween:(int) a to: (int) b
-{
-    int range = b - a < 0 ? b - a - 1 : b - a + 1;
-    int value = (int)(range * ((float) random() / (float) RAND_MAX));
-    NSLog(@"%d",value);
-    return value == range ? a : a + value;
-}
-
 - (int)getRandomInteger:(int)from to:(int)to
 {
 	return (int)from + arc4random() % (to-from+1);
