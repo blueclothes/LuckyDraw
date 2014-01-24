@@ -12,6 +12,21 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 
 @implementation Controller
 
+#pragma Initialization
+- (void)awakeFromNib
+{
+    NSString *   path = [[NSBundle mainBundle] pathForResource: @"幸运奖"
+														ofType: @"png"];
+    NSURL *      url = [NSURL fileURLWithPath: path];
+    [self openImageURL: url];
+    [mImageView setDoubleClickOpensImageEditPanel: NO];
+    [mImageView setDelegate: self];
+    
+    [self initPlayer];
+}
+
+
+#pragma mark - Music Player
 - (void)initPlayer
 {
     NSString * filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", FILE_NAME] ofType:FILE_EXTENSION];
@@ -28,15 +43,6 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
     
 }
 
-- (void)initAwards
-{
-    if (self.awardArray == nil)
-    {
-        self.awardArray = @[@"幸运奖", @"三等奖", @"二等奖", @"一等奖", @"特等奖"];
-        awardIdx = 0;
-    }
-    
-}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -59,7 +65,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
         {
             [self play];
         }
-
+        
 	}
 	else if (context == INNOAVPlayerRateContext)
 	{
@@ -83,26 +89,25 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 }
 
 
+#pragma mark - Awards Pictures
+- (void)initAwards
+{
+    if (self.awardArray == nil)
+    {
+        self.awardArray = @[@"幸运奖", @"三等奖", @"二等奖", @"一等奖", @"特等奖"];
+        awardIdx = 0;
+    }
+    
+}
+
 - (void)openImageURL: (NSURL*)url
 {
 	[mImageView setImageWithURL: url];
     [mImageView zoomImageToFit: self];
 }
 
-- (void)awakeFromNib
-{
-    NSString *   path = [[NSBundle mainBundle] pathForResource: @"幸运奖"
-														ofType: @"png"];
-    NSURL *      url = [NSURL fileURLWithPath: path];
-    [self openImageURL: url];
-    [mImageView setDoubleClickOpensImageEditPanel: NO];
-    [mImageView setDelegate: self];
-    
-    [self initPlayer];
-    
-	
-}
 
+#pragma mark - luck draw
 - (IBAction)draw:(id)sender
 {
     if (!mButton.isEnabled)
@@ -123,13 +128,6 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 		[mButton setTitle:@"开始抽奖"];
         mExisting.string = [NSString stringWithFormat:@"%@\n%@(%@)", mExisting.string,mLabel.stringValue,[self.awardArray objectAtIndex:awardIdx]];
 	}
-}
-
-- (int) generateRandomIntegerBetween:(int) a to: (int) b
-{
-    int range = b - a < 0 ? b - a - 1 : b - a + 1;
-    int value = (int)(range * ((float) random() / (float) RAND_MAX));
-    return value == range ? a : a + value;
 }
 
 - (void)interpret:(id)theNames
@@ -189,24 +187,19 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 	[NSThread exit];
 }
 
-
-- (IBAction)onKeyUp:(id)sender
+#pragma mark - lucky draw kernel algorithm
+- (int) generateRandomIntegerBetween:(int) a to: (int) b
 {
-    
+    int range = b - a < 0 ? b - a - 1 : b - a + 1;
+    int value = (int)(range * ((float) random() / (float) RAND_MAX));
+    return value == range ? a : a + value;
 }
 
-- (IBAction)muteMusic:(id)sender
+
+#pragma mark - IBActions
+- (IBAction)didPressStartStop:(id)sender
 {
-    if (self.musicPlayer.volume == 0.0f)
-    {
-        self.musicPlayer.volume = 1.0f;
-        [self.btnPlay setImage:[NSImage imageNamed:@"on"]];
-    }
-    else
-    {
-        self.musicPlayer.volume = 0.0f;
-        [self.btnPlay setImage:[NSImage imageNamed:@"off"]];
-    }
+    [self draw:nil];
 }
 
 - (IBAction)unlockUI:(id)sender
@@ -226,10 +219,20 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
     }
 }
 
-- (IBAction)didPressStartStop:(id)sender
+- (IBAction)muteMusic:(id)sender
 {
-    [self draw:nil];
+    if (self.musicPlayer.volume == 0.0f)
+    {
+        self.musicPlayer.volume = 1.0f;
+        [self.btnPlay setImage:[NSImage imageNamed:@"on"]];
+    }
+    else
+    {
+        self.musicPlayer.volume = 0.0f;
+        [self.btnPlay setImage:[NSImage imageNamed:@"off"]];
+    }
 }
+
 
 - (IBAction)didPressPrevious:(id)sender
 {
@@ -238,7 +241,6 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
     {
         awardIdx = self.awardArray.count - 1;
     }
-    
     
     NSString *   path = [[NSBundle mainBundle] pathForResource: self.awardArray[awardIdx]
 														ofType: @"png"];
@@ -253,7 +255,6 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
     {
         awardIdx = 0;
     }
-    
     
     NSString *   path = [[NSBundle mainBundle] pathForResource: self.awardArray[awardIdx]
 														ofType: @"png"];

@@ -13,11 +13,14 @@
 	IBOutlet IKImageView *  mImageView;
 	IBOutlet NSPanel *     mPanel;
 	IBOutlet NSButton * mButton;
+    
 	NSDictionary * mImageProperties;
 	NSString *     mImageUTType;
 	NSArray * names;
+    
     BOOL isLocked;
-        NSInteger awardIdx;
+    
+    NSInteger awardIdx;
 }
 
 @property(nonatomic, strong)AVPlayer * musicPlayer;
@@ -32,13 +35,10 @@
 
 - (void)interpret:(id)theNames;
 
-- (IBAction)onKeyUp:(id)sender;
-
 - (IBAction)muteMusic:(id)sender;
 - (IBAction)unlockUI:(id)sender;
 
 - (IBAction)didPressStartStop:(id)sender;
-
 - (IBAction)didPressPrevious:(id)sender;
 - (IBAction)didPressNext:(id)sender;
 
