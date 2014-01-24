@@ -176,8 +176,8 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 	
         int count = [cleanArray count];
         while ([mButton tag] == 1) {
-            int ramdon = [self generateRandomIntegerBetween:0 to: count-1];
-            NSString * temp = [cleanArray objectAtIndex:ramdon];
+            int random = [self getRandomInteger:0 to:count - 1];
+            NSString * temp = [cleanArray objectAtIndex:random];
             if (temp != NULL) {
                 mLabel.stringValue= temp;
                 [NSThread sleepForTimeInterval:0.0008];
@@ -192,9 +192,14 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 - (int) generateRandomIntegerBetween:(int) a to: (int) b
 {
     int range = b - a < 0 ? b - a - 1 : b - a + 1;
-    int value = (int)(range * ((float) arc4random() / (float) RAND_MAX));
+    int value = (int)(range * ((float) random() / (float) RAND_MAX));
     NSLog(@"%d",value);
     return value == range ? a : a + value;
+}
+
+- (int)getRandomInteger:(int)from to:(int)to
+{
+	return (int)from + arc4random() % (to-from+1);
 }
 
 
