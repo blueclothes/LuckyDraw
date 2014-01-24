@@ -17,10 +17,14 @@
 	NSString *     mImageUTType;
 	NSArray * names;
     BOOL isLocked;
+        NSInteger awardIdx;
 }
 
 @property(nonatomic, strong)AVPlayer * musicPlayer;
 @property (assign) IBOutlet NSButton *btnPlay;
+@property (assign) IBOutlet IKImageView *imageView;
+@property (nonatomic, strong)NSArray * awardArray;
+
 
 - (IBAction)draw:(id)sender;
 
@@ -34,5 +38,9 @@
 - (IBAction)unlockUI:(id)sender;
 
 - (IBAction)didPressStartStop:(id)sender;
+
+- (IBAction)didPressPrevious:(id)sender;
+- (IBAction)didPressNext:(id)sender;
+
 
 @end

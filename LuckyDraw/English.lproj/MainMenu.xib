@@ -134,6 +134,28 @@
                                         <action selector="unlockUI:" target="456" id="26f-Jp-zBR"/>
                                     </connections>
                                 </button>
+                                <button appearanceType="lightContent" verticalHuggingPriority="750" id="dqr-Va-cg5">
+                                    <rect key="frame" x="8" y="295" width="51" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="&lt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="A8H-hF-GiD">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system" size="21"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="didPressPrevious:" target="456" id="eIS-66-TIl"/>
+                                    </connections>
+                                </button>
+                                <button appearanceType="lightContent" verticalHuggingPriority="750" id="IjS-Va-3co">
+                                    <rect key="frame" x="944" y="295" width="51" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title=">" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O0P-mw-bXg">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system" size="21"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="didPressNext:" target="456" id="WMU-Zg-UhX"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </view>
                         <color key="borderColor" red="1" green="0.28963134950000002" blue="0.066300920799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,6 +226,7 @@ DQ
         <customObject id="456" userLabel="Controller" customClass="Controller">
             <connections>
                 <outlet property="btnPlay" destination="fAR-vH-Jca" id="g01-ut-qmz"/>
+                <outlet property="imageView" destination="454" id="j9a-Q0-dcE"/>
                 <outlet property="mButton" destination="483" id="487"/>
                 <outlet property="mExisting" destination="PC6-vL-dvn" id="Qcp-Vf-VDu"/>
                 <outlet property="mImageView" destination="454" id="491"/>

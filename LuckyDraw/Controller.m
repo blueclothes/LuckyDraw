@@ -28,6 +28,16 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
     
 }
 
+- (void)initAwards
+{
+    if (self.awardArray == nil)
+    {
+        self.awardArray = @[@"background", @"award003", @"award002", @"award001"];
+        awardIdx = 0;
+    }
+    
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	if (context == INNOAVPlayerItemStatusContext)
@@ -76,6 +86,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 - (void)openImageURL: (NSURL*)url
 {
 	[mImageView setImageWithURL: url];
+    [mImageView zoomImageToFit: self];
 }
 
 - (void)awakeFromNib
@@ -85,11 +96,10 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
     NSURL *      url = [NSURL fileURLWithPath: path];
     [self openImageURL: url];
     [mImageView setDoubleClickOpensImageEditPanel: NO];
- 
-    [mImageView zoomImageToFit: self];
     [mImageView setDelegate: self];
     
     [self initPlayer];
+    
 	
 }
 
@@ -219,6 +229,36 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 - (IBAction)didPressStartStop:(id)sender
 {
     [self draw:nil];
+}
+
+- (IBAction)didPressPrevious:(id)sender
+{
+    [self initAwards];
+    if (--awardIdx == -1)
+    {
+        awardIdx = self.awardArray.count - 1;
+    }
+    
+    
+    NSString *   path = [[NSBundle mainBundle] pathForResource: self.awardArray[awardIdx]
+														ofType: @"png"];
+    NSURL *      url = [NSURL fileURLWithPath: path];
+    [self openImageURL: url];
+}
+
+- (IBAction)didPressNext:(id)sender
+{
+    [self initAwards];
+    if (++awardIdx == self.awardArray.count)
+    {
+        awardIdx = 0;
+    }
+    
+    
+    NSString *   path = [[NSBundle mainBundle] pathForResource: self.awardArray[awardIdx]
+														ofType: @"png"];
+    NSURL *      url = [NSURL fileURLWithPath: path];
+    [self openImageURL: url];
 }
 
 
