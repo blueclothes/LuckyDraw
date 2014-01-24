@@ -23,6 +23,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
     [mImageView setDelegate: self];
     
     [self initPlayer];
+    [self initAwards];
 }
 
 
@@ -158,7 +159,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
         BOOL existed = NO;
         for(NSString* oitem in aExisting)
         {
-            if([oitem isEqualToString:item])
+            if([oitem rangeOfString:item].location != NSNotFound)
             {
                 existed = YES;
                 break;
@@ -236,7 +237,6 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 
 - (IBAction)didPressPrevious:(id)sender
 {
-    [self initAwards];
     if (--awardIdx == -1)
     {
         awardIdx = self.awardArray.count - 1;
@@ -250,7 +250,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 
 - (IBAction)didPressNext:(id)sender
 {
-    [self initAwards];
+    
     if (++awardIdx == self.awardArray.count)
     {
         awardIdx = 0;
