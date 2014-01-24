@@ -15,7 +15,7 @@
 		94911F1E0E51EA3000DAA70E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94911F1C0E51EA3000DAA70E /* QuartzCore.framework */; };
 		94911F290E51EA7B00DAA70E /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 94911F280E51EA7B00DAA70E /* Controller.m */; };
 		A99B0B91188E7836002891F8 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A99B0B90188E7836002891F8 /* AppIcon.png */; };
-		A99B0B95188E7E12002891F8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A99B0B94188E7E12002891F8 /* background.png */; };
+		A99B0B95188E7E12002891F8 /* 幸运奖.png in Resources */ = {isa = PBXBuildFile; fileRef = A99B0B94188E7E12002891F8 /* 幸运奖.png */; };
 		ED244BA4188F5CB900698E98 /* TFMaBF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED244BA3188F5CB900698E98 /* TFMaBF.mp3 */; };
 		ED244BA7188F5CC000698E98 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = ED244BA5188F5CC000698E98 /* off.png */; };
 		ED244BA8188F5CC000698E98 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = ED244BA6188F5CC000698E98 /* on.png */; };
@@ -23,9 +23,10 @@
 		EDE019F81890AE3400F48DF5 /* unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE019F61890AE3400F48DF5 /* unlocked.png */; };
 		EDF58F39188F8F99000EF708 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF58F38188F8F99000EF708 /* AVFoundation.framework */; };
 		EDF58F3B188F96DB000EF708 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF58F3A188F96DB000EF708 /* CoreMedia.framework */; };
-		EDFC5E5318920E5200984BF0 /* award001.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFC5E5018920E5200984BF0 /* award001.png */; };
-		EDFC5E5418920E5200984BF0 /* award002.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFC5E5118920E5200984BF0 /* award002.png */; };
-		EDFC5E5518920E5200984BF0 /* award003.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFC5E5218920E5200984BF0 /* award003.png */; };
+		EDFC5E5318920E5200984BF0 /* 一等奖.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFC5E5018920E5200984BF0 /* 一等奖.png */; };
+		EDFC5E5418920E5200984BF0 /* 二等奖.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFC5E5118920E5200984BF0 /* 二等奖.png */; };
+		EDFC5E58189214C700984BF0 /* 特等奖.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFC5E57189214C700984BF0 /* 特等奖.png */; };
+		EDFC5E5A1892188B00984BF0 /* 三等奖.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFC5E591892188B00984BF0 /* 三等奖.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +44,7 @@
 		94911F270E51EA7B00DAA70E /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		94911F280E51EA7B00DAA70E /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 		A99B0B90188E7836002891F8 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
-		A99B0B94188E7E12002891F8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		A99B0B94188E7E12002891F8 /* 幸运奖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "幸运奖.png"; sourceTree = "<group>"; };
 		ED244BA3188F5CB900698E98 /* TFMaBF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = TFMaBF.mp3; path = Res/TFMaBF.mp3; sourceTree = "<group>"; };
 		ED244BA5188F5CC000698E98 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = Res/off.png; sourceTree = "<group>"; };
 		ED244BA6188F5CC000698E98 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = on.png; path = Res/on.png; sourceTree = "<group>"; };
@@ -51,9 +52,10 @@
 		EDE019F61890AE3400F48DF5 /* unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unlocked.png; path = Res/unlocked.png; sourceTree = "<group>"; };
 		EDF58F38188F8F99000EF708 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		EDF58F3A188F96DB000EF708 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
-		EDFC5E5018920E5200984BF0 /* award001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = award001.png; path = Res/award001.png; sourceTree = "<group>"; };
-		EDFC5E5118920E5200984BF0 /* award002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = award002.png; path = Res/award002.png; sourceTree = "<group>"; };
-		EDFC5E5218920E5200984BF0 /* award003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = award003.png; path = Res/award003.png; sourceTree = "<group>"; };
+		EDFC5E5018920E5200984BF0 /* 一等奖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "一等奖.png"; path = "Res/一等奖.png"; sourceTree = "<group>"; };
+		EDFC5E5118920E5200984BF0 /* 二等奖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "二等奖.png"; path = "Res/二等奖.png"; sourceTree = "<group>"; };
+		EDFC5E57189214C700984BF0 /* 特等奖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "特等奖.png"; path = "Res/特等奖.png"; sourceTree = "<group>"; };
+		EDFC5E591892188B00984BF0 /* 三等奖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "三等奖.png"; path = "Res/三等奖.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +129,7 @@
 			children = (
 				ED244BA3188F5CB900698E98 /* TFMaBF.mp3 */,
 				ED244BA2188F5C8700698E98 /* Images */,
-				A99B0B94188E7E12002891F8 /* background.png */,
+				A99B0B94188E7E12002891F8 /* 幸运奖.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -161,9 +163,10 @@
 		EDFC5E5618920E5900984BF0 /* award */ = {
 			isa = PBXGroup;
 			children = (
-				EDFC5E5018920E5200984BF0 /* award001.png */,
-				EDFC5E5118920E5200984BF0 /* award002.png */,
-				EDFC5E5218920E5200984BF0 /* award003.png */,
+				EDFC5E57189214C700984BF0 /* 特等奖.png */,
+				EDFC5E5018920E5200984BF0 /* 一等奖.png */,
+				EDFC5E5118920E5200984BF0 /* 二等奖.png */,
+				EDFC5E591892188B00984BF0 /* 三等奖.png */,
 			);
 			name = award;
 			sourceTree = "<group>";
@@ -221,16 +224,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99B0B91188E7836002891F8 /* AppIcon.png in Resources */,
-				EDFC5E5318920E5200984BF0 /* award001.png in Resources */,
+				EDFC5E5318920E5200984BF0 /* 一等奖.png in Resources */,
 				ED244BA4188F5CB900698E98 /* TFMaBF.mp3 in Resources */,
-				A99B0B95188E7E12002891F8 /* background.png in Resources */,
+				A99B0B95188E7E12002891F8 /* 幸运奖.png in Resources */,
 				EDE019F81890AE3400F48DF5 /* unlocked.png in Resources */,
 				ED244BA7188F5CC000698E98 /* off.png in Resources */,
+				EDFC5E58189214C700984BF0 /* 特等奖.png in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				ED244BA8188F5CC000698E98 /* on.png in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				EDFC5E5518920E5200984BF0 /* award003.png in Resources */,
-				EDFC5E5418920E5200984BF0 /* award002.png in Resources */,
+				EDFC5E5A1892188B00984BF0 /* 三等奖.png in Resources */,
+				EDFC5E5418920E5200984BF0 /* 二等奖.png in Resources */,
 				EDE019F71890AE3400F48DF5 /* locked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

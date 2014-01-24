@@ -32,7 +32,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 {
     if (self.awardArray == nil)
     {
-        self.awardArray = @[@"background", @"award003", @"award002", @"award001"];
+        self.awardArray = @[@"幸运奖", @"三等奖", @"二等奖", @"一等奖", @"特等奖"];
         awardIdx = 0;
     }
     
@@ -91,7 +91,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 
 - (void)awakeFromNib
 {
-    NSString *   path = [[NSBundle mainBundle] pathForResource: @"background"
+    NSString *   path = [[NSBundle mainBundle] pathForResource: @"幸运奖"
 														ofType: @"png"];
     NSURL *      url = [NSURL fileURLWithPath: path];
     [self openImageURL: url];
@@ -121,7 +121,7 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
 	} else if (button_status == 1) {
 		[mButton setTag:0];
 		[mButton setTitle:@"开始抽奖"];
-        mExisting.string = [NSString stringWithFormat:@"%@\n%@", mExisting.string,mLabel.stringValue];
+        mExisting.string = [NSString stringWithFormat:@"%@\n%@(%@)", mExisting.string,mLabel.stringValue,[self.awardArray objectAtIndex:awardIdx]];
 	}
 }
 
