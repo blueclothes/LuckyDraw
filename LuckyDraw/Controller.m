@@ -183,6 +183,9 @@ static void *INNOAVPlayerRateContext = &INNOAVPlayerRateContext;
                 [NSThread sleepForTimeInterval:0.0008];
             }
         }
+    }else
+    {
+        mLabel.stringValue = @"没有还没中奖的人了！";
     }
     [pool release];
 	[NSThread exit];
